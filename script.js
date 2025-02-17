@@ -2,9 +2,9 @@ let yesButton = document.getElementById("yes");
 let noButton = document.getElementById("no");
 let questionText = document.getElementById("question");
 let mainImage = document.getElementById("mainImage");
-
 const params = new URLSearchParams(window.location.search);
 let username = params.get("name");
+let bgm = document.getElementById("bgm");
 
 // 限制用户名长度，避免页面样式崩坏
 const maxLength = 20;
@@ -56,13 +56,15 @@ noButton.addEventListener("click", function () {
   if (clickCount >= 5) mainImage.src = "images/crying.png"; // 之后一直是哭
 });
 
-// Yes 按钮点击后，进入表白成功页面
 const loveTest = `!!!哈基杨也喜欢你!! ( >᎑<)♡︎ᐝ  ${
   username ? `${safeUsername}  ♡︎ᐝ(>᎑< )` : ""
 }`;
 
 yesButton.addEventListener("click", function () {
-  // 先创建基础 HTML 结构
+  // 确保 BGM 播放
+  bgm.play().catch(error => console.log("BGM 播放失败:", error));
+
+  // 修改页面内容，而不是替换整个 body
   document.body.innerHTML = `
         <div class="yes-screen">
             <h1 class="yes-text"></h1>
@@ -70,9 +72,13 @@ yesButton.addEventListener("click", function () {
         </div>
     `;
 
-  // 确保用户名安全地插入
   document.querySelector(".yes-text").innerText = loveTest;
-
-  // 禁止滚动，保持页面美观
   document.body.style.overflow = "hidden";
+
+  // 重新创建 BGM（解决 body 被替换后 BGM 消失的问题）
+  let newBgm = document.createElement("audio");
+  newBgm.src = "bgm.mp3";
+  newBgm.loop = true;
+  newBgm.autoplay = true;
+  document.body.appendChild(newBgm);
 });
