@@ -22,7 +22,7 @@ const noTexts = [
   "？你认真的吗…",
   "要不再想想？",
   "不许选这个！ ",
-  "哈基杨哭哭了…",
+  "kk哭哭了…",
   "不行:(",
 ];
 
@@ -56,7 +56,7 @@ noButton.addEventListener("click", function () {
   if (clickCount >= 5) mainImage.src = "images/crying.png"; // 之后一直是哭
 });
 
-const loveTest = `!!!哈基杨也喜欢你!! ( >᎑<)♡︎ᐝ  ${
+const loveTest = `!!!kk也喜欢你!! ( >᎑<)♡︎ᐝ  ${
   username ? `${safeUsername}  ♡︎ᐝ(>᎑< )` : ""
 }`;
 
