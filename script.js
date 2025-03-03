@@ -4,7 +4,7 @@ let questionText = document.getElementById("question");
 let mainImage = document.getElementById("mainImage");
 const params = new URLSearchParams(window.location.search);
 let username = params.get("name");
-let bgm = document.getElementById("bgm");
+// let bgm = document.getElementById("bgm");
 
 // 限制用户名长度，避免页面样式崩坏
 const maxLength = 20;
@@ -22,7 +22,7 @@ const noTexts = [
   "？你认真的吗…",
   "要不再想想？",
   "不许选这个！ ",
-  "kk哭哭了…",
+  "哭哭了…",
   "不行:(",
 ];
 
@@ -56,13 +56,13 @@ noButton.addEventListener("click", function () {
   if (clickCount >= 5) mainImage.src = "images/crying.png"; // 之后一直是哭
 });
 
-const loveTest = `!!!kk也喜欢你!! ( >᎑<)♡︎ᐝ  ${
+const loveTest = `!!!魏智富也喜欢你!! ( >᎑<)♡︎ᐝ  ${
   username ? `${safeUsername}  ♡︎ᐝ(>᎑< )` : ""
 }`;
 
 yesButton.addEventListener("click", function () {
-  // 确保 BGM 播放
-  bgm.play().catch(error => console.log("BGM 播放失败:", error));
+//   // 确保 BGM 播放
+//   bgm.play().catch(error => console.log("BGM 播放失败:", error));
 
   // 修改页面内容，而不是替换整个 body
   document.body.innerHTML = `
@@ -75,10 +75,10 @@ yesButton.addEventListener("click", function () {
   document.querySelector(".yes-text").innerText = loveTest;
   document.body.style.overflow = "hidden";
 
-  // 重新创建 BGM（解决 body 被替换后 BGM 消失的问题）
-  let newBgm = document.createElement("audio");
-  newBgm.src = "bgm.mp3";
-  newBgm.loop = true;
-  newBgm.autoplay = true;
-  document.body.appendChild(newBgm);
+//   // 重新创建 BGM（解决 body 被替换后 BGM 消失的问题）
+//   let newBgm = document.createElement("audio");
+//   newBgm.src = "bgm.mp3";
+//   newBgm.loop = true;
+//   newBgm.autoplay = true;
+//   document.body.appendChild(newBgm);
 });
