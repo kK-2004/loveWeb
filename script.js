@@ -56,7 +56,7 @@ noButton.addEventListener("click", function () {
   if (clickCount >= 5) mainImage.src = "images/crying.png"; // 之后一直是哭
 });
 
-const loveTest = `!!!魏智富也喜欢你!! ( >᎑<)♡︎ᐝ  ${
+const loveTest = `!!!我也喜欢你!! ( >᎑<)♡︎ᐝ  ${
   username ? `${safeUsername}  ♡︎ᐝ(>᎑< )` : ""
 }`;
 
